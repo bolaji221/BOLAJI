@@ -5,14 +5,14 @@ SELECT
        S.store_location,
        (P.product_cost- P.product_price) AS profit
 FROM 
-	   products P
+       products P
 JOIN 
        inventory I ON P.product_id = I.product_id
 JOIN 
        store S on i.store_id = s.store_id
 GROUP BY
        P.product_id,
-	   S.store_location
+       S.store_location
 ORDER BY 
        profit DESC
 limit 4;
@@ -50,7 +50,7 @@ JOIN
        products P on I.product_id= P.product_id
 GROUP BY
        I.stock_on_hand,
-	   ST.store_location,
-	   P.product_category
+       ST.store_location,
+       P.product_category
 HAVING
        STOCK_ON_HAND =0 OR NULL ;
